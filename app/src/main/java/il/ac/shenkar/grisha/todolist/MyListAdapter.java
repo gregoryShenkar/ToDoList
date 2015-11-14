@@ -4,32 +4,59 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
 
-public class MyListAdapter extends ArrayAdapter<String> {
+public class MyListAdapter extends BaseAdapter {
 
-    public MyListAdapter(Context context, int resource, List<String> items) {
-        super(context, resource, items);
+    private Context context;
+    private List<String> items;
+
+    public MyListAdapter(Context context, List<String> items) {
+        this.context = context;
+        this.items = items;
+    }
+
+    static class ViewHolder {
+        TextView textView;
+        Button button;
+    }
+
+    @Override
+    public int getCount() {
+        return items.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        if (this.items != null && items.size() > position)
+            return this.items.get(position);
+        return null;
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
     }
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View v = convertView;
-        if (v == null) {
-            LayoutInflater vi;
-            vi = LayoutInflater.from(getContext());
-            v = vi.inflate(R.layout.list_item, null);
+        ViewHolder holder;
+        if (convertView == null) {
+            convertView = LayoutInflater.from(context).inflate(
+                    R.layout.list_item, null);
+            holder = new ViewHolder();
+            holder.textView = (TextView) convertView.findViewById(R.id.list_item_text);
+            holder.button = (Button) convertView.findViewById(R.id.list_item_button);
+            convertView.setTag(holder);
         }
-        String task = getItem(position);
-        if (task != null) {
-            TextView textView = (TextView) v.findViewById(R.id.list_item_text);
-            textView.setText(task);
-            Button button = (Button) v.findViewById(R.id.list_item_button);
+        else {
+        holder = (ViewHolder) convertView.getTag();
         }
-        return v;
+        holder.textView.setText(items.get(position));
+    return convertView;
     }
 }

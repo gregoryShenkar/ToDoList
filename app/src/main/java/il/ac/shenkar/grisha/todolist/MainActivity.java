@@ -36,8 +36,7 @@ public class MainActivity extends AppCompatActivity {
         listItems.add("Mock Task 19");
         listItems.add("Mock Task 20");
         setContentView(R.layout.activity_main);
-        MyListAdapter adapter = new MyListAdapter(this,
-                R.layout.list_item, listItems);
+        MyListAdapter adapter = new MyListAdapter(this, listItems);
         ListView listView = (ListView) findViewById(R.id.list);
         listView.setAdapter(adapter);
     }

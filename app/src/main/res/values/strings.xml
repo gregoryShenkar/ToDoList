@@ -5,4 +5,5 @@
     <string name="confirm_button">Create</string>
     <string name="title_activity_create_task">New task</string>
     <string name="to_do">To do...</string>
+    <string name="ok">OK</string>
 </resources>

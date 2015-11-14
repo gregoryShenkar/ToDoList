@@ -13,6 +13,6 @@ public class CreateTaskActivity extends AppCompatActivity {
     }
 
     public void submitTask(View view){
-        // TODO: 11/10/2015
+        finish();
     }
 }

@@ -10,8 +10,7 @@ import android.widget.TextView;
 
 import java.util.List;
 
-public class MyListAdapter extends BaseAdapter {
-
+public class MyListAdapter extends BaseAdapter{
     private Context context;
     private List<String> items;
 
@@ -50,7 +49,6 @@ public class MyListAdapter extends BaseAdapter {
                     R.layout.list_item, null);
             holder = new ViewHolder();
             holder.textView = (TextView) convertView.findViewById(R.id.list_item_text);
-            holder.button = (Button) convertView.findViewById(R.id.list_item_button);
             convertView.setTag(holder);
         }
         else {

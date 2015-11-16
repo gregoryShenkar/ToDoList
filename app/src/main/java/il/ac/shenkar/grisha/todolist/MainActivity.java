@@ -28,15 +28,6 @@ public class MainActivity extends Activity {
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
-        //MyListAdapter adapter = new MyListAdapter(this, listItems);
-        //ListView listView = (ListView) findViewById(R.id.my_list);
-        //listView.setAdapter(adapter);
-        //listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-        //    @Override
-        //    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        //        Toast.makeText(MainActivity.this, "Item number "+(position+1)+" was clicked" , Toast.LENGTH_LONG).show();
-        //    }
-        //});
     }
 
     public void createTask(View view){
